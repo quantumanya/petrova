@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anya Petrova</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: #fff;
+            font-family: 'Space Mono', 'Roboto Mono', monospace;
+            line-height: 1.6;
+            padding: 20px;
+            font-weight: 100;
+            font-size: 11px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 40px;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #666;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin: 30px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: 0;
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-weight: 100;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .social-icons {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .social-icons a {
+                margin: 0;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="name">Anya Petrova</div>
+        <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:contact@example.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+1234567890"><i class="fas fa-phone"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <h2>Welcome to My Portfolio</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <h2>About My Work</h2>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h2>My Projects</h2>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </main>
+
+    <script>
+        function typeWriter(element, text, i = 0) {
+            if (i === 0) {
+                element.style.opacity = 1;
+            }
+            
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                setTimeout(() => typeWriter(element, text, i + 1), 100);
+            }
+        }
+
+        // Initialize typewriter effect for all h2 elements
+        document.querySelectorAll('h2').forEach(h2 => {
+            const text = h2.textContent;
+            h2.textContent = '';
+            // Stagger the animation start for each h2
+            setTimeout(() => typeWriter(h2, text), 500 * Array.from(document.querySelectorAll('h2')).indexOf(h2));
+        });
+    </script>
+</body>
+</html>
